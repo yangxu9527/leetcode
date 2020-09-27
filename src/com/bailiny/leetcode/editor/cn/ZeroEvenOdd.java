@@ -1,6 +1,7 @@
 package com.bailiny.leetcode.editor.cn;
 
 import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.function.IntConsumer;
 
@@ -12,91 +13,77 @@ import java.util.function.IntConsumer;
 public class ZeroEvenOdd {
 
     private int n;
-    /**
-     * 当前打印的值
-     */
-    private int cur;
 
-    private ReentrantLock reentrantLock = new ReentrantLock();
-    private Condition condition1 = reentrantLock.newCondition();
-    private Condition condition2 = reentrantLock.newCondition();
-    private Condition condition3 = reentrantLock.newCondition();
+    private volatile int start = 1;
+
+    private volatile int who;
+    private Lock lock = new ReentrantLock();
+    private Condition zero = lock.newCondition();
+    private Condition even = lock.newCondition();
+    private Condition odd = lock.newCondition();
 
     public ZeroEvenOdd(int n) {
         this.n = n;
     }
 
-    /**
-     * printNumber.accept(x) outputs "x", where x is an integer.
-     * @param printNumber
-     * @throws InterruptedException
-     */
+    // printNumber.accept(x) outputs "x", where x is an integer.
     public void zero(IntConsumer printNumber) throws InterruptedException {
-        reentrantLock.lock();
+        lock.lock();
         try {
-            while (cur != 0) {
-                condition1.await();
-            }
-            while (true) {
+            while (start <= n) {
+                if (who != 0) {
+                    zero.await();
+                }
                 printNumber.accept(0);
-                cur++;
-                if (cur % 2 == 1) {
-                    condition2.signal();
+                if (start % 2 == 0) {
+                    who = 2;
+                    even.signal();
                 } else {
-                    condition3.signal();
+                    who = 1;
+                    odd.signal();
                 }
-                // 判断是否是最后一次打印,如果不是的话就还要等待
-                if (cur != n) {
-                    condition1.await();
-                }
+                zero.await();
             }
+            odd.signal();
+            even.signal();
         } finally {
-            reentrantLock.unlock();
+            lock.unlock();
         }
     }
 
+    //偶数
     public void even(IntConsumer printNumber) throws InterruptedException {
-        reentrantLock.lock();
+        lock.lock();
         try {
-            while (cur != n && cur % 2 != 1) {
-                condition2.await();
-            }
-            while (cur <= n) {
-                printNumber.accept(cur);
-                condition1.signal();
-
-                // 判断是否是最后一次打印,如果不是的话就还要等待
-                if (cur != n) {
-                    condition1.await();
-                }
-                if (cur != n) {
-                    condition2.await();
+            while (start <= n) {
+                if (who != 2) {
+                    even.await();
                 } else {
-                    return;
+                    printNumber.accept(start++);
+                    who = 0;
+                    zero.signal();
                 }
             }
         } finally {
-            reentrantLock.unlock();
+            lock.unlock();
         }
     }
 
+    //基数
     public void odd(IntConsumer printNumber) throws InterruptedException {
-        reentrantLock.lock();
+        lock.lock();
         try {
-            while (cur != n && (cur == 0 || cur % 2 != 0)) {
-                condition3.await();
-            }
-            while (cur <= n) {
-                printNumber.accept(cur);
-                condition1.signal();
-                if (cur != n) {
-                    condition3.await();
+            while (start <= n) {
+                if (who != 1) {
+                    odd.await();
                 } else {
-                    return;
+                    printNumber.accept(start++);
+                    who = 0;
+                    zero.signal();
                 }
             }
         } finally {
-            reentrantLock.unlock();
+            lock.unlock();
         }
     }
 }
@@ -104,7 +91,7 @@ public class ZeroEvenOdd {
 class ZeroEvenOddTest {
 
     public static void main(String[] args) {
-        ZeroEvenOdd zeroEvenOdd = new ZeroEvenOdd(1);
+        ZeroEvenOdd zeroEvenOdd = new ZeroEvenOdd(10);
         IntConsumer printNumber = value -> System.out.print(value);
         new Thread(() -> {
             try {
