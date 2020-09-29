@@ -69,10 +69,7 @@ public class P146LruCache {
         }
 
         public synchronized int get(int key) {
-            if (map.get(key) == null) {
-                return -1;
-            }
-            return map.get(key);
+            return map.getOrDefault(key, -1);
         }
 
         public synchronized void put(int key, int value) {
