@@ -59,7 +59,7 @@ public class P146LruCache {
 
         public LRUCache(int capacity) {
             this.MAX_SIZE = capacity;
-            map = new LinkedHashMap<Integer, Integer>(capacity,0.75f, true) {
+            map = new LinkedHashMap<Integer, Integer>(capacity, 0.75f, true) {
                 @Override
                 protected boolean removeEldestEntry(Map.Entry<Integer, Integer> eldest) {
                     return size() > MAX_SIZE;

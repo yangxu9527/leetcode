@@ -1,36 +1,39 @@
-package com.bailiny.Êý×é;
+package com.bailiny.
+
+ï¿½ï¿½ï¿½ï¿½;
 
 import org.junit.Test;
 
 /**
- * 867.×ªÖÃ¾ØÕó </br>
-   *  ¸ø¶¨Ò»¸ö¾ØÕó A£¬ ·µ»Ø A µÄ×ªÖÃ¾ØÕó¡£
-   *  ¾ØÕóµÄ×ªÖÃÊÇÖ¸½«¾ØÕóµÄÖ÷¶Ô½ÇÏß·­×ª£¬½»»»¾ØÕóµÄÐÐË÷ÒýÓëÁÐË÷Òý¡£
+ * 867.×ªï¿½Ã¾ï¿½ï¿½ï¿½ </br>
+ * ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Aï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ A ï¿½ï¿½×ªï¿½Ã¾ï¿½ï¿½ï¿½
+ * ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ß·ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ *
  * @author yangxu
- * @date 2018Äê10ÔÂ6ÈÕ ÏÂÎç9:37:28
  * @version V1.0
+ * @date 2018ï¿½ï¿½10ï¿½ï¿½6ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½9:37:28
  */
 public class Transpose {
 
-	public int[][] transpose(int[][] A) {
-		int[][] result = new int[A[0].length][A.length];
-		for (int i = 0; i < A.length; i++) {
-			for (int j = 0; j < A[i].length; j++) {
-				result[j][i] = A[i][j];
-			}
-		}
-		return result;
+    public int[][] transpose(int[][] A) {
+        int[][] result = new int[A[0].length][A.length];
+        for (int i = 0; i < A.length; i++) {
+            for (int j = 0; j < A[i].length; j++) {
+                result[j][i] = A[i][j];
+            }
+        }
+        return result;
     }
-	
-	@Test
-	public void test() {
-		int[][] A = {{1,2,3},{4,5,6},{7,8,9}};
-		int[][] res = transpose(A);
-		for (int i = 0; i < res.length; i++) {
-			System.out.println("------------");
-			for (int j = 0; j < res[i].length; j++) {
-				System.out.println(res[i][j]);
-			}
-		}
-	}
+
+    @Test
+    public void test() {
+        int[][] A = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int[][] res = transpose(A);
+        for (int i = 0; i < res.length; i++) {
+            System.out.println("------------");
+            for (int j = 0; j < res[i].length; j++) {
+                System.out.println(res[i][j]);
+            }
+        }
+    }
 }
