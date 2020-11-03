@@ -2,6 +2,16 @@ package com.bailiny.leetcode.editor.cn;
 
 public class FooBar {
 
+    public static void main(String[] args) {
+        Integer a = 128;
+        change(a);
+        System.out.println(a);
+    }
+
+    public static void change(Integer a) {
+        a+=2;
+    }
+
     private int n;
     // ∏√À≠¥Ú”°£¨0 foo, 1 bar
     private int whoPrint;
