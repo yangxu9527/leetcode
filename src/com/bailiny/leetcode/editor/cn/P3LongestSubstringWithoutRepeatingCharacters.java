@@ -29,42 +29,43 @@ package com.bailiny.leetcode.editor.cn;
 import com.sun.org.apache.regexp.internal.RE;
 
 //java:无重复字符的最长子串
-public class P3LongestSubstringWithoutRepeatingCharacters{
-    public static void main(String[] args){
+public class P3LongestSubstringWithoutRepeatingCharacters {
+    public static void main(String[] args) {
         Solution solution = new P3LongestSubstringWithoutRepeatingCharacters().new Solution();
         int abcabcbb = solution.lengthOfLongestSubstring("abcabcbb");
         System.out.println(abcabcbb);
     }
+
     //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public int lengthOfLongestSubstring(String s) {
-        if (s == null) {
-            return 0;
-        }
-        if (s.length() == 1) {
-            return 1;
-        }
-        char[] c = s.toCharArray();
-        int startIndex = 0;
-        int currentMaxLength = 0;
-        int maxLength = 0;
-        for (int i = 0; i < c.length; i++) {
-            for (int j = startIndex; j < i; j++) {
-                if (c[i] == c[j]) {
-                    if (currentMaxLength > maxLength) {
-                        maxLength = currentMaxLength;
-                    }
-                    // 有重复
-                    startIndex = j + 1;
-                    currentMaxLength = i - startIndex;
-                    break;
-                }
+    class Solution {
+        public int lengthOfLongestSubstring(String s) {
+            if (s == null) {
+                return 0;
             }
-            currentMaxLength++;
+            if (s.length() == 1) {
+                return 1;
+            }
+            char[] c = s.toCharArray();
+            int startIndex = 0;
+            int currentMaxLength = 0;
+            int maxLength = 0;
+            for (int i = 0; i < c.length; i++) {
+                for (int j = startIndex; j < i; j++) {
+                    if (c[i] == c[j]) {
+                        if (currentMaxLength > maxLength) {
+                            maxLength = currentMaxLength;
+                        }
+                        // 有重复
+                        startIndex = j + 1;
+                        currentMaxLength = i - startIndex;
+                        break;
+                    }
+                }
+                currentMaxLength++;
+            }
+            return currentMaxLength > maxLength ? currentMaxLength : maxLength;
         }
-        return currentMaxLength > maxLength ? currentMaxLength : maxLength;
     }
-}
 //leetcode submit region end(Prohibit modification and deletion)
 
 }

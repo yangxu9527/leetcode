@@ -22,20 +22,21 @@ package com.bailiny.leetcode.editor.cn;
 import java.util.HashMap;
 
 //java:只出现一次的数字
-public class P136SingleNumber{
-    public static void main(String[] args){
+public class P136SingleNumber {
+    public static void main(String[] args) {
         Solution solution = new P136SingleNumber().new Solution();
     }
+
     //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public int singleNumber(int[] nums) {
-        int result = 0;
-        for (int num : nums) {
-            result ^= num;
+    class Solution {
+        public int singleNumber(int[] nums) {
+            int result = 0;
+            for (int num : nums) {
+                result ^= num;
+            }
+            return result;
         }
-        return result;
     }
-}
 //leetcode submit region end(Prohibit modification and deletion)
 
 }

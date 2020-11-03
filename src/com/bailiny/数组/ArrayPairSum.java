@@ -1,61 +1,63 @@
-package com.bailiny.Êý×é;
+package com.bailiny.
+
+ï¿½ï¿½ï¿½ï¿½;
 
 import java.util.Arrays;
 
 import org.junit.Test;
 
 /**
- * 561.Êý×é²ð·Ö</br>
- * ¸ø¶¨³¤¶ÈÎª 2n µÄÊý×é, ÄãµÄÈÎÎñÊÇ½«ÕâÐ©Êý·Ö³É n ¶Ô, ÀýÈç (a1, b1), (a2, b2), ..., (an, bn) £¬Ê¹µÃ´Ó1 µ½ n
- * µÄ min(ai, bi) ×ÜºÍ×î´ó¡£</br>
- * ÆäÖÐ£º</br>
- * n ÊÇÕýÕûÊý,·¶Î§ÔÚ [1, 10000].</br>
- * Êý×éÖÐµÄÔªËØ·¶Î§ÔÚ [-10000, 10000].</br>
- * Êý×éÖÐµÄÖµ²»»áÖØ¸´
+ * 561.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</br>
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª 2n ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç½ï¿½ï¿½ï¿½Ð©ï¿½ï¿½ï¿½Ö³ï¿½ n ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ (a1, b1), (a2, b2), ..., (an, bn) ï¿½ï¿½Ê¹ï¿½Ã´ï¿½1 ï¿½ï¿½ n
+ * ï¿½ï¿½ min(ai, bi) ï¿½Üºï¿½ï¿½ï¿½ï¿½</br>
+ * ï¿½ï¿½ï¿½Ð£ï¿½</br>
+ * n ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½Î§ï¿½ï¿½ [1, 10000].</br>
+ * ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½Ôªï¿½Ø·ï¿½Î§ï¿½ï¿½ [-10000, 10000].</br>
+ * ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½
  *
  * @author yangxu
- * @date 2018Äê10ÔÂ6ÈÕ ÏÂÎç9:59:50
  * @version V1.0
+ * @date 2018ï¿½ï¿½10ï¿½ï¿½6ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½9:59:50
  */
 public class ArrayPairSum {
 
-	/**
-	 * Á½Á½·Ö×éÇómin×ÜºÍ×î´ó£¬Ôò×î´óºÍµÚ¶þ´ó£¬µÚÈý´óºÍµÚËÄ´óÕâÑùÒ»´Î·Ö×éµÃµ½µÄ×ÜºÍ×î´ó£¬ Òò´Ë×îÖ±½ÓµÄ·½Ê½¾ÍÊÇÏÈ¶ÔÊý×éÅÅÐòÈ»ºóÔÙÇóÅ¼ÊýÎ»Ö®ºÍ
-	 */
-	public int arrayPairSum(int[] nums) {
-		Arrays.sort(nums);
-		int res = 0;
-		for (int i = 0; i < nums.length; i = i + 2) {
-			res += nums[i];
-		}
-		return res;
-	}
+    /**
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½minï¿½Üºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÍµÚ¶ï¿½ï¿½ó£¬µï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Î·ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½Üºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ÓµÄ·ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½È¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¼ï¿½ï¿½Î»Ö®ï¿½ï¿½
+     */
+    public int arrayPairSum(int[] nums) {
+        Arrays.sort(nums);
+        int res = 0;
+        for (int i = 0; i < nums.length; i = i + 2) {
+            res += nums[i];
+        }
+        return res;
+    }
 
-	/**
-	 * Ö±½ÓÅÅÐò¿ªÏú½Ï´ó£¬×¢ÒâÌáÊ¾£¬¿ÉÒÔ¿¼ÂÇ´´½¨Ò»¸öÊý×é°ÑÖµ£¬ºÍÏÂ±ê¶ÔÓ¦£¬Ïàµ±ÓÚÅÅÐòÁË.
-	 */
-	public int arrayPairSum2(int[] nums) {
-		int[] sorts = new int[20001];
-		for (int i = 0; i < nums.length; i++) {
-			sorts[nums[i] + 10000]++;
-		}
-		int res = 0;
-		boolean odd = true;
-		for (int i = 0; i < sorts.length; i++) {
-			while (sorts[i] > 0) {
-				if (odd) {
-					res += i - 10000;
-				}
-				odd = !odd;
-				sorts[i]--;
-			}
-		}
-		return res;
-	}
+    /**
+     * Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½×¢ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½Ô¿ï¿½ï¿½Ç´ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½Â±ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½àµ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+     */
+    public int arrayPairSum2(int[] nums) {
+        int[] sorts = new int[20001];
+        for (int i = 0; i < nums.length; i++) {
+            sorts[nums[i] + 10000]++;
+        }
+        int res = 0;
+        boolean odd = true;
+        for (int i = 0; i < sorts.length; i++) {
+            while (sorts[i] > 0) {
+                if (odd) {
+                    res += i - 10000;
+                }
+                odd = !odd;
+                sorts[i]--;
+            }
+        }
+        return res;
+    }
 
-	@Test
-	public void test() {
-		int[] nums = { 1, 3, 2, 4, 4, 7 };
-		System.out.println(arrayPairSum2(nums));
-	}
+    @Test
+    public void test() {
+        int[] nums = {1, 3, 2, 4, 4, 7};
+        System.out.println(arrayPairSum2(nums));
+    }
 }

@@ -1,20 +1,20 @@
-//给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。 
+//给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。
 //
-// 示例： 
+// 示例：
 //
 // 给定一个链表: 1->2->3->4->5, 和 n = 2.
 //
 //当删除了倒数第二个节点后，链表变为 1->2->3->5.
-// 
 //
-// 说明： 
 //
-// 给定的 n 保证是有效的。 
+// 说明：
 //
-// 进阶： 
+// 给定的 n 保证是有效的。
 //
-// 你能尝试使用一趟扫描实现吗？ 
-// Related Topics 链表 双指针 
+// 进阶：
+//
+// 你能尝试使用一趟扫描实现吗？
+// Related Topics 链表 双指针
 // 👍 978 👎 0
 
 package com.bailiny.leetcode.editor.cn;
@@ -26,20 +26,21 @@ public class RemoveNthNodeFromEndOfList {
         Solution solution = new RemoveNthNodeFromEndOfList().new Solution();
     }
     //leetcode submit region begin(Prohibit modification and deletion)
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) { val = x; }
- * }
- */
-class Solution {
-    public ListNode removeNthFromEnd(ListNode head, int n) {
 
-        return null;
+    /**
+     * Definition for singly-linked list.
+     * public class ListNode {
+     * int val;
+     * ListNode next;
+     * ListNode(int x) { val = x; }
+     * }
+     */
+    class Solution {
+        public ListNode removeNthFromEnd(ListNode head, int n) {
+
+            return null;
+        }
     }
-}
 //leetcode submit region end(Prohibit modification and deletion)
 
 }

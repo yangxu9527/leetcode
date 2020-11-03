@@ -13,7 +13,7 @@ public class FooBar {
     }
 
     private int n;
-    // ¸ÃË­´òÓ¡£¬0 foo, 1 bar
+    // ï¿½ï¿½Ë­ï¿½ï¿½Ó¡ï¿½ï¿½0 foo, 1 bar
     private int whoPrint;
 
 
@@ -39,7 +39,8 @@ public class FooBar {
         for (int i = 0; i < n; i++) {
             synchronized (this) {
                 while (whoPrint == 0) {
-                    this.wait();;
+                    this.wait();
+                    ;
                 }
                 printBar.run();
                 whoPrint = 0;

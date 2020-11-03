@@ -1,49 +1,53 @@
-package com.bailiny.Êı×é;
+package com.bailiny.
+
+ï¿½ï¿½ï¿½ï¿½;
 
 import org.junit.Test;
 
 /**
- * 905.°´ÆæÅ¼Ğ£ÑéÅÅĞòÊı×é¡£</br>
- * ¸ø¶¨Ò»¸ö·Ç¸ºÕûÊıÊı×é A£¬·µ»ØÒ»¸öÓÉ A µÄËùÓĞÅ¼ÊıÔªËØ×é³ÉµÄÊı×é£¬ºóÃæ¸ú A µÄËùÓĞÆæÊıÔªËØ¡£
-   * ¿ÉÒÔ·µ»ØÂú×ã´ËÌõ¼şµÄÈÎºÎÊı×é×÷Îª´ğ°¸¡£
+ * 905.ï¿½ï¿½ï¿½ï¿½Å¼Ğ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é¡£</br>
+ * ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ A ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¼ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½é£¬ï¿½ï¿½ï¿½ï¿½ï¿½ A ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½Ø¡ï¿½
+ * ï¿½ï¿½ï¿½Ô·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ğ°¸¡ï¿½
+ *
  * @author yangxu
- * @date 2018Äê10ÔÂ6ÈÕ ÏÂÎç8:40:14
  * @version V1.0
+ * @date 2018ï¿½ï¿½10ï¿½ï¿½6ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½8:40:14
  */
 public class SortArrayByParity {
 
 
-	/**
-	   *    ²ÉÓÃË«Ö¸Õë£¬±éÀúÓöµ½Å¼ÊıÔò·Åµ½Êı×éÎ²²¿£¬Óöµ½ÆæÊıÔò·Åµ½Êı×éÍ·²¿
-	 * @param: @param A
-	 * @param: @return      
-	 * @return: int[]      
-	 * @throws
-	 */
-	public int[] sortArrayByParity(int[] A) {
-		int len = A.length;
+    /**
+     * ï¿½ï¿½ï¿½ï¿½Ë«Ö¸ï¿½ë£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¼ï¿½ï¿½ï¿½ï¿½Åµï¿½ï¿½ï¿½ï¿½ï¿½Î²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Åµï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½
+     *
+     * @throws
+     * @param: @param A
+     * @param: @return
+     * @return: int[]
+     */
+    public int[] sortArrayByParity(int[] A) {
+        int len = A.length;
         int[] result = new int[len];
-        // Í·²¿ºÍÎ²²¿Ö¸Õë
+        // Í·ï¿½ï¿½ï¿½ï¿½Î²ï¿½ï¿½Ö¸ï¿½ï¿½
         int headPointer = 0;
-        int tailPointer = len - 1; 
+        int tailPointer = len - 1;
         for (int i = 0; i < len; i++) {
-			if(A[i] % 2 == 0) {
-				result[headPointer] = A[i];
-				headPointer++;
-			}else {
-				result[tailPointer] = A[i];
-				tailPointer--;
-			}
-		}
+            if (A[i] % 2 == 0) {
+                result[headPointer] = A[i];
+                headPointer++;
+            } else {
+                result[tailPointer] = A[i];
+                tailPointer--;
+            }
+        }
         return result;
     }
-	
-	@Test
-	public void test() {
-		int[] A = {3, 1, 2, 4};
-		int[] res = sortArrayByParity(A);
-		for (int i = 0; i < res.length; i++) {
-			System.out.println(res[i]);
-		}
-	}
+
+    @Test
+    public void test() {
+        int[] A = {3, 1, 2, 4};
+        int[] res = sortArrayByParity(A);
+        for (int i = 0; i < res.length; i++) {
+            System.out.println(res[i]);
+        }
+    }
 }
